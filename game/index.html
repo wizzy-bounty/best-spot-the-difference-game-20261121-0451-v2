@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Second Glance — a spot-the-difference hunt</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div id="brand">
+      <h1>SECOND GLANCE</h1>
+      <p id="tagline">a spot-the-difference hunt — five scenes, forty secrets</p>
+    </div>
+    <nav id="level-pills" aria-label="Scenes"></nav>
+  </header>
+
+  <div id="scene-head">
+    <div>
+      <h2 id="scene-name">Night Train Platform</h2>
+      <p id="scene-sub"></p>
+    </div>
+    <p id="total-found"></p>
+  </div>
+
+  <section id="hud" aria-label="Scoreboard">
+    <div class="hud-cell counter">
+      <span class="hud-label">To go</span>
+      <span id="counter-num">8</span>
+      <span id="found-dots" aria-label="Differences found"></span>
+    </div>
+    <div class="hud-cell">
+      <span class="hud-label">Score</span>
+      <span id="score-num" class="hud-big">0</span>
+    </div>
+    <div class="hud-cell">
+      <span class="hud-label">Streak</span>
+      <span id="streak-num" class="hud-big">×0</span>
+    </div>
+    <div class="hud-cell">
+      <span class="hud-label">Strikes</span>
+      <span id="strikes-dots"></span>
+    </div>
+    <div class="hud-cell">
+      <span class="hud-label">Time</span>
+      <span id="timer-num" class="hud-big">4:00</span>
+    </div>
+    <div class="hud-cell">
+      <span class="hud-label">Hints left</span>
+      <span id="hints-num" class="hud-big">3</span>
+    </div>
+    <div class="hud-buttons">
+      <button type="button" id="btn-hint" class="btn">Hint (H)</button>
+      <button type="button" id="btn-lens" class="btn">Lens (L)</button>
+      <button type="button" id="btn-pause" class="btn">Pause (P)</button>
+      <button type="button" id="btn-restart" class="btn">Restart (R)</button>
+      <button type="button" id="btn-next" class="btn gold" disabled>Next scene (N)</button>
+      <button type="button" id="btn-mute" class="btn">Sound: on (M)</button>
+    </div>
+  </section>
+
+  <div id="timer-track"><div id="timer-fill"></div></div>
+  <p id="toast" role="status"></p>
+
+  <main id="stage">
+    <canvas id="game" width="1248" height="524"></canvas>
+  </main>
+
+  <section id="howto">
+    <div class="how-card">
+      <h3>The hunt</h3>
+      <p>Two pictures of the same scene hang side by side, and eight things
+      differ between them. Click a difference in <em>either</em> picture to
+      circle it in gold on both. Finds build your streak and your score;
+      wrong guesses cost a strike, and three strikes — or an empty clock —
+      end the scene. Finish a scene to unlock the next.</p>
+    </div>
+    <div class="how-card">
+      <h3>Mouse</h3>
+      <ul>
+        <li>Move to inspect — the crosshair mirrors on the other picture.</li>
+        <li>Click a difference to mark it.</li>
+        <li>Toggle the <strong>lens</strong> to magnify the spot under your cursor.</li>
+        <li>Spend a <strong>hint</strong> (−25 points) to circle one difference softly.</li>
+      </ul>
+    </div>
+    <div class="how-card">
+      <h3>Keyboard</h3>
+      <ul>
+        <li><kbd>←</kbd><kbd>→</kbd><kbd>↑</kbd><kbd>↓</kbd> or <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> move the crosshair (hold <kbd>Shift</kbd> for speed)</li>
+        <li><kbd>Enter</kbd> guess · <kbd>Tab</kbd> switch picture</li>
+        <li><kbd>H</kbd> hint · <kbd>L</kbd> lens · <kbd>P</kbd> pause · <kbd>R</kbd> restart · <kbd>N</kbd> next scene</li>
+        <li><kbd>1</kbd>–<kbd>5</kbd> jump to an unlocked scene · <kbd>M</kbd> mute</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>Second Glance — an original game of five hand-drawn scenes, painted in
+    code and played entirely offline. Built for the make.fun
+    best-spot-the-difference-game bounty.</p>
+  </footer>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
